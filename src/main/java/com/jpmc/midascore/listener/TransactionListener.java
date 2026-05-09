@@ -9,10 +9,13 @@ import com.jpmc.midascore.foundation.Transaction;
 public class TransactionListener {
 
     @KafkaListener(
-        topics = "${general.kafka-topic}",
-        groupId = "midas-group"
+            topics = "${general.kafka-topic}",
+            groupId = "midas-group"
     )
     public void listen(Transaction transaction) {
-        System.out.println("Received: " + transaction.getAmount());
+
+        System.out.println("========== KAFKA MESSAGE RECEIVED ==========");
+        System.out.println("Amount: " + transaction.getAmount());
+
     }
 }
